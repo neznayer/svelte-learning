@@ -1,9 +1,7 @@
 <script>
-	function handleClick() {
-		alert('no more alerts')
-	}
+	let name = 'world';
 </script>
 
-<button on:click|once={handleClick}>
-	Click me
-</button>
+<input bind:value={name} />
+
+<h1>Hello {name}!</h1>
