@@ -1,9 +1,9 @@
 <script>
-	function handleClick() {
-		alert('no more alerts')
+	import Outer from './Outer.svelte';
+
+	function handleMessage(event) {
+		alert(event.detail.text);
 	}
 </script>
 
-<button on:click|once={handleClick}>
-	Click me
-</button>
+<Outer on:message={handleMessage} />
