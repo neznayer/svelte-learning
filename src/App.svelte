@@ -26,7 +26,7 @@
 			replacement +
 			value.slice(selectionEnd);
 
-		await tick()
+		await tick() // wait here until update with new text ant then set the selection again as it was
 		this.selectionStart = selectionStart;
 		this.selectionEnd = selectionEnd;
 	}
