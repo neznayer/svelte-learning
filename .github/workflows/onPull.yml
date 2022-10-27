@@ -11,14 +11,17 @@ jobs:
   deploy_preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
-      with:
-        repoToken: "{{ secrets.GITHUB_TOKEN }}"
-        firebaseServiceAccount: "{{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-        expires: 10d
-        projectId: test-70b6c
+        with:
+          repoToken: "{{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "{{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          expires: 10d
+          projectId: test-70b6c
 
 
     
